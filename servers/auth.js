@@ -8,7 +8,7 @@ const jwt = require('jsonwebtoken')
 
 app.use(express.json())
 
-const refreshTokens = []
+let refreshTokens = []
 
 const mockUsers = []
 
@@ -100,6 +100,11 @@ app.post('/token', (req, res) => {
     const accessToken = generateAccessToken({ username: user.username })
     res.json({ accessToken: accessToken })
   })
+})
+
+app.delete('/logout', (req, res) => {
+  refreshTokens = refreshTokens.filter(token => token != req.body.token)
+  res.sendStatus(204)
 })
 
 app.listen(4001)
