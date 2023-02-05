@@ -1,0 +1,34 @@
+GET http://localhost:4000/posts
+###
+GET http://localhost:4000/users
+###
+POST http://localhost:4000/users
+Content-Type: application/json
+
+{
+  "username": "Tim Lee",
+  "password": "password"
+}
+###
+POST http://localhost:4001/users/login
+Content-Type: application/json
+
+{
+  "username": "Tim Lee",
+  "password": "password"
+}
+
+###
+POST  http://localhost:4001/token
+Content-Type: application/json
+
+{
+  "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6IlRpbSBMZWUiLCJpYXQiOjE2NzU2MDk4MDl9.Gf3igy7fZNyI7uFqWqCawjxJ357VsJqK5Z5PK6nZ4rQ"
+}
+
+###
+GET http://localhost:4001/posts
+authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6IlRpbSBMZWUiLCJpYXQiOjE2NzU2MDk4MzIsImV4cCI6MTY3NTYwOTg1Mn0.OYhXAm8xTpwClRw6IevAjAWyVurDnRnyB6LCZziXBvQ
+###
+GET http://localhost:4001/posts
+authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6IlRpbSBMZWUiLCJpYXQiOjE2NzU2MDkwMDgsImV4cCI6MTY3NTYwOTAyOH0.25D15ADccZ-iOx-UZ6vqI_ndQDJP3UeHH6kt25zxToc 
